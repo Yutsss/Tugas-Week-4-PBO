@@ -8,28 +8,28 @@ public class ClockMain extends JFrame {
     private JLabel timeLabel;
 
     public ClockMain() {
-        // Inisialisasi frame dan clock
+        // Inisialisasi clock dan label
         clock = new ClockDisplay();
         timeLabel = new JLabel(clock.getTime(), JLabel.CENTER);
 
-        // Mengatur tampilan frame
+        // Mengatur tampilan GUI
         setTitle("Clock Display");
         setSize(300, 100);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
 
-        // Set font agar lebih besar dan lebih jelas
+        // Atur font dan ukuran label
         timeLabel.setFont(new Font("Verdana", Font.BOLD, 32));
 
-        // Menambahkan label ke frame
+        // Tambahkan label ke frame
         add(timeLabel, BorderLayout.CENTER);
 
-        // Membuat timer untuk mengupdate waktu setiap 1 detik
+        // Membuat timer untuk update waktu setiap detik
         Timer timer = new Timer(1000, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                clock.timeTick(); // Menambah 1 menit
-                timeLabel.setText(clock.getTime()); // Update tampilan jam
+                clock.timeTick(); // Tambah 1 detik
+                timeLabel.setText(clock.getTime()); // Perbarui label dengan waktu baru
             }
         });
 
